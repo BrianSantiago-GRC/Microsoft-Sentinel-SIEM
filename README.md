@@ -1,71 +1,68 @@
-# Microsoft Sentinel SIEM Project
+# Microsoft Sentinel SIEM Lab
 
-## Objective
+A hands-on lab project where I deployed Microsoft Sentinel in Azure and worked through the full cycle of log ingestion, KQL query writing, alert creation, and incident investigation.
 
-The Microsoft Sentinel SIEM project focused on deploying and configuring a cloud based SIEM to simulate real world Security Operations Center monitoring and detection activities. The objective was to ingest security telemetry from multiple sources, analyze logs using Kusto Query Language, generate actionable alerts, and perform Tier 1 SOC style investigations to identify and respond to suspicious activity.
+I built this to get comfortable with cloud-based SIEM operations before stepping into a professional environment. The goal was not to check boxes but to actually understand how log sources flow into Sentinel, how analytics rules fire, and what a Tier 1 investigation workflow looks like in practice.
 
-This project was designed to demonstrate practical experience with SIEM implementation, log analysis, alert triage, and incident response using Microsoft Sentinel in an enterprise like environment.
+---
 
-### Skills Learned
+## What I Did
 
-- Practical implementation and operation of Microsoft Sentinel as a SIEM platform.
-- Log ingestion and normalization using Azure Log Analytics.
-- Writing and tuning KQL queries to detect suspicious authentication and security events.
-- Alert triage and incident investigation following SOC Tier 1 workflows.
-- Correlation of identity, security, and activity logs to identify potential threats.
-- Documentation and communication of investigation findings.
-- Understanding of cloud based security monitoring and identity focused detections.
+**Deployed Sentinel and connected data sources**
 
-### Tools Used
+Set up a Log Analytics workspace, enabled Sentinel, and connected Azure AD sign-in logs, Windows Security Event logs, and Defender for Cloud telemetry. Verified ingestion was working across log tables before moving to detection work.
 
-- Microsoft Sentinel for SIEM monitoring, detection, and incident management.
-- Azure Log Analytics Workspace for centralized log storage and querying.
-- Azure Active Directory logs for identity and authentication monitoring.
-- Microsoft Defender data sources for security telemetry.
-- Kusto Query Language for log analysis and detection logic.
-- Azure Portal for configuration and management.
+**Wrote KQL queries for detection**
 
-## Steps
-Ref 1: Sentinel Deployment and Architecture
-Set up Microsoft Sentinel in an Azure Log Analytics workspace. Designed workspace architecture, enabled required permissions, and ensured connectivity across security telemetry sources.
+Spent most of the time here. Started with basic queries and worked up to detection logic for failed sign-ins, unusual login patterns, and Azure AD changes. A few examples:
 
-Ref 2: Data Connector Configuration
-Configured multiple data connectors including Azure AD sign in logs, Defender for Cloud data, and Windows Security Event logs to funnel telemetry into Sentinel for analysis. Verified successful ingestion across log tables.
-
-Ref 3: Log Normalization and Query Building
-Utilized KQL to analyze ingested data, identify failed sign in attempts, unusual network activity, and other anomalies. Built custom detection queries based on SIEM best practices.
-
-EXAMPLE KQL Queries:
-
-Failed Sign In Detection
+Failed sign-in threshold:
+```kql
 SigninLogs
 | where ResultType != 0
 | summarize FailedAttempts = count() by UserPrincipalName, IPAddress
 | where FailedAttempts > 5
+```
 
+Login volume by user and IP:
+```kql
 SigninLogs
 | summarize LoginCount = count() by UserPrincipalName, IPAddress
 | where LoginCount > 10
+```
 
+Azure AD administrative changes:
+```kql
 AuditLogs
 | where OperationName contains "Add" or OperationName contains "Update"
 | project TimeGenerated, InitiatedBy, TargetResources
+```
 
+**Built and tuned analytics rules**
 
-Ref 4: Analytics Rule Creation and Tuning
-Created custom analytics rules in Sentinel to generate alerts from suspicious activity patterns. Tuned rule thresholds to balance detection coverage and false positive reduction.
+Created custom analytics rules from the KQL queries. The tuning part was more interesting than I expected. Getting the thresholds wrong in either direction creates real problems: too sensitive and you drown in noise, too loose and you miss things.
 
-Ref 5: Incident Generation and Alert Triage
-Evaluated generated alerts within Sentinel, blazed incident records, and performed alert triage. Documented initial context, correlated multiple signals, and classified severity.
+**Triaged and investigated incidents**
 
-Ref 6: Investigation and Response Documentation
-Investigated alerts using Sentinel’s investigation tools, entity relationships, and correlated logs. Recorded findings, response steps, and resolution activities following SOC documentation standards.
+Worked through the generated alerts in Sentinel's incident view. Correlated signals, followed the entity relationship graph, and documented findings the way you would in a real SOC handoff.
 
-Ref 7: Workbooks and Dashboards
-Created workbooks for visualizing log patterns, alert trends, and key security metrics. Used workbooks as operational tools to monitor ongoing SOC telemetry.
+**Built workbooks**
 
-Outcome:
+Created workbooks to visualize login patterns, alert trends, and activity over time. Useful for getting a quick read on what is normal before diving into specific alerts.
 
-- Demonstrated end to end SOC Tier 1 workflow using Microsoft Sentinel.
-- Improved alert fidelity through rule tuning.
-- Strengthened familiarity with cloud based SIEM operations and identity focused detections.
+---
+
+## Tools
+
+- Microsoft Sentinel
+- Azure Log Analytics Workspace
+- Azure Active Directory logs
+- Microsoft Defender data sources
+- Kusto Query Language (KQL)
+- Azure Portal
+
+---
+
+## What I Took Away
+
+The detection logic and tuning work was more nuanced than I expected. The investigation workflow made more sense once I understood how entity mapping works in Sentinel. This lab gave me a solid foundation for working with cloud SIEM environments and understanding what is happening underneath the alerts.
