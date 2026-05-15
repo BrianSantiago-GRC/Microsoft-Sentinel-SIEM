@@ -1,75 +1,31 @@
-# Screenshot Checklist
+# Screenshot Status
 
-Screenshot folder for the Microsoft Sentinel SIEM learning lab.
+Screenshots are not included in this repository because they were not captured during the original completed honeypot lab.
 
----
+This is intentional. The project should stay honest and interview-defensible.
 
-## Project Purpose
+## Current Status
 
-This folder will hold sanitized screenshots that support the Sentinel portfolio lab.
+- Original lab completed.
+- Screenshots not captured.
+- No fake screenshots added.
+- Written evidence is stored in [`../evidence`](../evidence).
 
-Screenshots should show real lab work, not unrelated images or placeholder evidence.
-
----
-
-## Tools Used
-
-- Microsoft Sentinel
-- Azure Log Analytics
-- Microsoft Entra ID / Azure AD logs
-- KQL query view
-- Screenshot/redaction tool as needed
-
----
-
-## What I Practiced
-
-- Planning useful screenshots for a recruiter-facing portfolio.
-- Identifying what evidence should be redacted before public posting.
-- Keeping lab evidence separate from documentation notes.
-
----
-
-## Skills Demonstrated
-
-- Evidence handling.
-- Security documentation.
-- Data redaction awareness.
-- SIEM lab organization.
-
----
-
-## Lessons Learned
-
-A screenshot should prove a specific learning step. If it does not support the project purpose, it should not be added.
-
----
-
-## Screenshots / Evidence
-
-Needed screenshots:
+## Screenshots To Capture If Lab Is Recreated
 
 - Sentinel workspace overview.
 - Log Analytics query view.
-- Basic KQL query result.
-- Example incident or alert view.
-- Workbook or visualization, if available.
+- Failed logon KQL result.
+- Source activity summary.
+- Incident or alert view if configured.
+- Workbook/map visualization if rebuilt.
 
-Current status: missing.
+## Redaction Rules
 
----
+Before adding any screenshot:
 
-## Future Improvements
-
-- Add sanitized screenshot files.
-- Add short captions explaining what each screenshot shows.
-- Link the strongest screenshots from the main README.
-
----
-
-## Before Committing
-
-- Remove or blur tenant details.
-- Remove user emails and account IDs.
-- Remove public IP addresses unless intentionally sanitized.
-- Confirm the screenshot supports a real completed lab step.
+- Remove tenant IDs.
+- Remove usernames, emails, hostnames, and subscription details.
+- Remove or sanitize public IP addresses.
+- Confirm the image supports a real completed step.
+- Add a short caption explaining what the screenshot proves.

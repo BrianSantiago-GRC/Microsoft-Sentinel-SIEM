@@ -1,87 +1,30 @@
-# Evidence Tracker
+# Evidence Folder
 
-Evidence folder for the Microsoft Sentinel SIEM learning lab.
+This folder contains written evidence for the completed Microsoft Sentinel honeypot lab.
 
----
+Screenshots were not captured during the original lab, so the evidence here is documentation-based:
 
-## Project Purpose
+- lab summary
+- KQL examples
+- analyst timeline
+- incident notes
+- lessons learned
 
-This folder tracks supporting evidence for the Sentinel lab so future screenshots, incident notes, and query examples can be added in a clean and reviewable way.
+No fake screenshots, fake alerts, or invented production evidence are included.
 
----
+## Files
 
-## Tools Used
-
-- Microsoft Sentinel
-- Azure Log Analytics
-- Microsoft Entra ID / Azure AD logs
-- KQL
-- Markdown documentation
-
----
-
-## What I Practiced
-
-- Planning evidence before adding screenshots.
-- Separating real lab evidence from placeholders.
-- Defining safe naming and redaction rules.
-- Keeping project documentation recruiter-friendly and accurate.
-
----
-
-## Skills Demonstrated
-
-- Evidence organization.
-- Documentation discipline.
-- Screenshot planning.
-- Security data handling awareness.
-- Clear limitation statements.
-
----
-
-## Lessons Learned
-
-Evidence should support a real completed step. It should not be added just to make the project look larger.
-
-For security projects, sanitized screenshots and clear notes are more useful than inflated claims.
-
----
-
-## Screenshots / Evidence
-
-Current status: no live lab screenshots or incident evidence files have been added yet.
-
-Evidence to add:
-
-- Sentinel workspace overview screenshot.
-- Log Analytics query screenshot with basic KQL.
-- Query result screenshot.
-- Example incident or alert screenshot.
-- Short incident notes example.
-- Explanation of what was reviewed and what was learned.
-
-Suggested naming:
-
-- `sentinel-workspace-overview.png`
-- `log-analytics-query-example.png`
-- `query-results-example.png`
-- `incident-review-example.png`
-- `incident-notes-example.md`
-
----
-
-## Future Improvements
-
-- Add sanitized evidence files.
-- Add short descriptions beside each evidence item.
-- Link completed evidence back to the main README.
-
----
+| File | Purpose |
+|---|---|
+| [honeypot-lab-summary.md](honeypot-lab-summary.md) | Summary of the completed lab and scope. |
+| [kql-queries.md](kql-queries.md) | KQL examples used for failed logon and event review. |
+| [analyst-timeline.md](analyst-timeline.md) | Timeline-style walkthrough of the investigation. |
+| [incident-notes.md](incident-notes.md) | Junior SOC-style incident note documentation. |
+| [lessons-learned.md](lessons-learned.md) | Practical lessons and future improvements. |
 
 ## Evidence Rules
 
-- Do not include secrets, tenant IDs, private email addresses, IP addresses, or account identifiers.
-- Redact sensitive data before committing screenshots.
-- Only document work that was actually completed in the lab.
-- Keep wording junior-aligned: practiced, reviewed, documented, learned.
-
+- Do not include real tenant IDs.
+- Do not include private IPs, public IPs, usernames, emails, or hostnames from a live environment.
+- Do not claim screenshots exist unless image files are actually added.
+- Keep the project junior-aligned and interview-defensible.
