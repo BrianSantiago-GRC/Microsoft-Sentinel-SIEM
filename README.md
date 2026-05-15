@@ -1,22 +1,44 @@
 # Microsoft Sentinel SIEM Lab
 
-A hands-on lab project where I deployed Microsoft Sentinel in Azure and worked through the full cycle of log ingestion, KQL query writing, alert creation, and incident investigation.
+Personal SIEM learning lab for practicing Microsoft Sentinel concepts, log review, basic KQL, alert logic, and security operations documentation.
 
-I built this to get comfortable with cloud-based SIEM operations before stepping into a professional environment. The goal was not to check boxes but to actually understand how log sources flow into Sentinel, how analytics rules fire, and what a Tier 1 investigation workflow looks like in practice.
+This project is part of my transition from IT support into junior cybersecurity operations. It is a learning project, not production SOC ownership or advanced detection engineering.
 
 ---
 
-## What I Did
+## Purpose
 
-**Deployed Sentinel and connected data sources**
+The purpose of this lab is to practice how log data flows into Microsoft Sentinel and how a junior analyst might review alerts, document findings, and understand basic investigation steps.
 
-Set up a Log Analytics workspace, enabled Sentinel, and connected Azure AD sign-in logs, Windows Security Event logs, and Defender for Cloud telemetry. Verified ingestion was working across log tables before moving to detection work.
+---
 
-**Wrote KQL queries for detection**
+## What I Practiced
 
-Spent most of the time here. Started with basic queries and worked up to detection logic for failed sign-ins, unusual login patterns, and Azure AD changes. A few examples:
+- Setting up a Microsoft Sentinel learning environment.
+- Reviewing how logs are ingested into a Log Analytics workspace.
+- Writing basic KQL queries for sign-in and activity review.
+- Creating simple alert concepts from query results.
+- Reviewing generated incidents and documenting what was observed.
+- Thinking through escalation notes and handoff quality.
+
+---
+
+## Tools Used
+
+- Microsoft Sentinel
+- Azure Log Analytics Workspace
+- Microsoft Entra ID / Azure AD logs
+- Windows Security Event logs
+- Microsoft Defender data sources, where available
+- Kusto Query Language (KQL)
+- Azure Portal
+
+---
+
+## Example KQL Practice
 
 Failed sign-in threshold:
+
 ```kql
 SigninLogs
 | where ResultType != 0
@@ -25,44 +47,63 @@ SigninLogs
 ```
 
 Login volume by user and IP:
+
 ```kql
 SigninLogs
 | summarize LoginCount = count() by UserPrincipalName, IPAddress
 | where LoginCount > 10
 ```
 
-Azure AD administrative changes:
+Administrative activity review:
+
 ```kql
 AuditLogs
 | where OperationName contains "Add" or OperationName contains "Update"
 | project TimeGenerated, InitiatedBy, TargetResources
 ```
 
-**Built and tuned analytics rules**
+---
 
-Created custom analytics rules from the KQL queries. The tuning part was more interesting than I expected. Getting the thresholds wrong in either direction creates real problems: too sensitive and you drown in noise, too loose and you miss things.
+## Skills Demonstrated
 
-**Triaged and investigated incidents**
-
-Worked through the generated alerts in Sentinel's incident view. Correlated signals, followed the entity relationship graph, and documented findings the way you would in a real SOC handoff.
-
-**Built workbooks**
-
-Created workbooks to visualize login patterns, alert trends, and activity over time. Useful for getting a quick read on what is normal before diving into specific alerts.
+- SIEM learning and log review.
+- Basic KQL query practice.
+- Alert triage concepts.
+- Microsoft identity log awareness.
+- Incident note documentation.
+- Operational thinking around escalation and handoff.
 
 ---
 
-## Tools
+## What I Learned
 
-- Microsoft Sentinel
-- Azure Log Analytics Workspace
-- Azure Active Directory logs
-- Microsoft Defender data sources
-- Kusto Query Language (KQL)
-- Azure Portal
+This lab helped me understand how Sentinel organizes logs, alerts, entities, and incidents. The most useful lesson was that alert review is not just about seeing a signal. It is about documenting what happened, what evidence supports the finding, and what should happen next.
 
 ---
 
-## What I Took Away
+## Screenshots
 
-The detection logic and tuning work was more nuanced than I expected. The investigation workflow made more sense once I understood how entity mapping works in Sentinel. This lab gave me a solid foundation for working with cloud SIEM environments and understanding what is happening underneath the alerts.
+Screenshots will be added as available.
+
+Planned screenshots:
+
+- Sentinel workspace overview.
+- Log Analytics query view.
+- Example query result.
+- Example incident or alert view.
+- Workbook or visualization, if available.
+
+---
+
+## Limitations
+
+This is a personal lab. It does not represent production SOC ownership, enterprise SIEM administration, or advanced detection engineering. It is meant to show hands-on learning and documentation discipline.
+
+---
+
+## Next Improvement
+
+- Add screenshots.
+- Add a short incident notes example.
+- Add a simple explanation of one alert review workflow.
+- Connect this lab to the phishing analysis workflow project.
