@@ -2,7 +2,7 @@
 
 Personal SIEM learning lab for practicing Microsoft Sentinel concepts, log review, basic KQL, alert logic, and security operations documentation.
 
-This project supports my transition from IT support into junior cybersecurity operations. It is a learning project and does not claim SOC ownership, Sentinel administration ownership, or advanced detection work.
+This project supports my transition from IT support into junior cybersecurity operations. It is a portfolio lab and does not claim SOC ownership, Sentinel administration ownership, or advanced detection work.
 
 ---
 

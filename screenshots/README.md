@@ -6,7 +6,7 @@ Screenshot folder for the Microsoft Sentinel SIEM learning lab.
 
 ## Project Purpose
 
-This folder will hold sanitized screenshots that support the Sentinel learning project.
+This folder will hold sanitized screenshots that support the Sentinel portfolio lab.
 
 Screenshots should show real lab work, not unrelated images or placeholder evidence.
 
@@ -73,4 +73,3 @@ Current status: missing.
 - Remove user emails and account IDs.
 - Remove public IP addresses unless intentionally sanitized.
 - Confirm the screenshot supports a real completed lab step.
-
