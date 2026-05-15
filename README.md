@@ -2,24 +2,15 @@
 
 Personal SIEM learning lab for practicing Microsoft Sentinel concepts, log review, basic KQL, alert logic, and security operations documentation.
 
-This project is part of my transition from IT support into junior cybersecurity operations. It is a learning project and does not claim SOC ownership.
+This project supports my transition from IT support into junior cybersecurity operations. It is a learning project and does not claim SOC ownership, Sentinel administration ownership, or advanced detection work.
 
 ---
 
-## Purpose
+## Project Purpose
 
 The purpose of this lab is to practice how log data flows into Microsoft Sentinel and how a junior analyst might review alerts, document findings, and understand basic investigation steps.
 
----
-
-## What I Practiced
-
-- Setting up a Microsoft Sentinel learning environment.
-- Reviewing how logs are ingested into a Log Analytics workspace.
-- Writing basic KQL queries for sign-in and activity review.
-- Creating simple alert concepts from query results.
-- Reviewing generated incidents and documenting what was observed.
-- Thinking through escalation notes and handoff quality.
+The project is designed to show practical learning, clear documentation, and operational reasoning.
 
 ---
 
@@ -32,6 +23,18 @@ The purpose of this lab is to practice how log data flows into Microsoft Sentine
 - Microsoft Defender data sources, where available
 - Kusto Query Language (KQL)
 - Azure Portal
+- Markdown documentation
+
+---
+
+## What I Practiced
+
+- Setting up a Microsoft Sentinel learning environment.
+- Reviewing how logs are ingested into a Log Analytics workspace.
+- Writing basic KQL queries for sign-in and activity review.
+- Reviewing simple alert concepts from query results.
+- Thinking through incident notes and escalation quality.
+- Documenting limitations and evidence gaps clearly.
 
 ---
 
@@ -75,17 +78,19 @@ AuditLogs
 
 ---
 
-## What I Learned
+## Lessons Learned
 
-This lab helped me understand how Sentinel organizes logs, alerts, entities, and incidents. The most useful lesson was that alert review is not just about seeing a signal. It is about documenting what happened, what evidence supports the finding, and what should happen next.
+This lab helped me understand how Sentinel organizes logs, alerts, entities, and incidents.
+
+The most useful lesson was that alert review is not just about seeing a signal. It is about documenting what happened, what evidence supports the finding, and what should happen next.
 
 ---
 
-## Screenshots
+## Screenshots / Evidence
 
-Screenshots will be added after they are captured from the lab environment. See [screenshots/README.md](screenshots/README.md) for the capture checklist.
+Screenshots will be added after they are captured from the lab environment.
 
-Planned screenshots:
+Current screenshot checklist:
 
 - Sentinel workspace overview.
 - Log Analytics query view.
@@ -93,23 +98,24 @@ Planned screenshots:
 - Example incident or alert view.
 - Workbook or visualization, if available.
 
+Supporting folders:
+
+- [screenshots/README.md](screenshots/README.md)
+- [evidence/README.md](evidence/README.md)
+
+No screenshots or incident evidence are claimed until files are added to this repository.
+
 ---
 
-## Evidence
+## Future Improvements
 
-Evidence will be tracked in [evidence/README.md](evidence/README.md). No screenshots or incident evidence are claimed until the files are added to this repository.
+- Add sanitized screenshots.
+- Add a short incident notes example.
+- Add a simple explanation of one alert review workflow.
+- Connect this lab to the phishing analysis workflow project.
 
 ---
 
 ## Limitations
 
-This is a personal lab. It does not represent responsibility for a live SOC, SIEM administration role, or specialized detection work. It is meant to show hands-on learning and documentation discipline.
-
----
-
-## Next Improvement
-
-- Add screenshots.
-- Add a short incident notes example.
-- Add a simple explanation of one alert review workflow.
-- Connect this lab to the phishing analysis workflow project.
+This is a personal lab. It does not represent responsibility for a live SOC, SIEM administration role, production monitoring, or specialized detection work.
