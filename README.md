@@ -2,7 +2,7 @@
 
 Personal SIEM learning lab for practicing Microsoft Sentinel concepts, log review, basic KQL, alert logic, and security operations documentation.
 
-This project is part of my transition from IT support into junior cybersecurity operations. It is a learning project, not production SOC ownership or advanced detection engineering.
+This project is part of my transition from IT support into junior cybersecurity operations. It is a learning project and does not claim SOC ownership.
 
 ---
 
@@ -83,7 +83,7 @@ This lab helped me understand how Sentinel organizes logs, alerts, entities, and
 
 ## Screenshots
 
-Screenshots will be added as available.
+Screenshots will be added after they are captured from the lab environment. See [screenshots/README.md](screenshots/README.md) for the capture checklist.
 
 Planned screenshots:
 
@@ -95,9 +95,15 @@ Planned screenshots:
 
 ---
 
+## Evidence
+
+Evidence will be tracked in [evidence/README.md](evidence/README.md). No screenshots or incident evidence are claimed until the files are added to this repository.
+
+---
+
 ## Limitations
 
-This is a personal lab. It does not represent production SOC ownership, enterprise SIEM administration, or advanced detection engineering. It is meant to show hands-on learning and documentation discipline.
+This is a personal lab. It does not represent responsibility for a live SOC, SIEM administration role, or specialized detection work. It is meant to show hands-on learning and documentation discipline.
 
 ---
 
